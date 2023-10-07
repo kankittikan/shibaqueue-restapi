@@ -1,10 +1,9 @@
 package ku.cs.shibaqueuerestapi.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
+import java.awt.*;
 import java.util.UUID;
 
 @Data
@@ -14,7 +13,17 @@ public class Restaurant {
     @GeneratedValue
     private UUID idRestaurant;
 
-    private String userName;
+    @ManyToOne
+    private Category category;
+
+    @ManyToOne
+    private Admin admin;
+
+    @OneToOne
+    private Booking booking;
+
+    private Image restaurantImage;
+    private String username;
     private String password;
     private String email;
     private String restaurantName;

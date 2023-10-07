@@ -3,6 +3,7 @@ package ku.cs.shibaqueuerestapi.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import lombok.Data;
 
 import java.util.UUID;
@@ -15,4 +16,7 @@ public class TableType {
     private UUID idTableType;
 
     private int seatNumber;
+
+    @OneToOne
+    private Booking booking;
 }
